@@ -6,25 +6,20 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Comment {
+public class Characteristic {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @NotNull(message = "userName must not be empty")
-    private String userName;
+    @NotNull(message = "name must not be empty")
+    private String name;
 
-    @NotNull(message = "userEmail must not be empty")
-    private String userEmail;
-
-    @NotNull(message = "comment must not be empty")
-    private String comment;
-
-    @ManyToOne
-    private Product product;
+    @ManyToMany
+    private List<Product> product;
 }

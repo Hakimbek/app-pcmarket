@@ -6,7 +6,6 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -28,9 +27,9 @@ public class Product {
 
     private Integer guarantee;
 
+    @OneToOne(optional = false)
+    private Attachment attachment;
+
     @ManyToOne(optional = false)
     private Catalog catalog;
-
-    @ManyToMany
-    private List<Comment> comment;
 }
