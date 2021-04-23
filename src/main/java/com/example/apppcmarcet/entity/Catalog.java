@@ -19,6 +19,6 @@ public class Catalog {
     @NotNull(message = "name must not be empty")
     private String name;
 
-    @ManyToOne(optional = false)
+    @ManyToOne
     private Catalog catalog;
 }

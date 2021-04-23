@@ -20,6 +20,6 @@ public class Characteristic {
     @NotNull(message = "name must not be empty")
     private String name;
 
-    @ManyToMany
-    private List<Product> product;
+    @ManyToOne(optional = false)
+    private Product product;
 }

@@ -11,6 +11,9 @@ import java.util.List;
 @RepositoryRestResource(path = "product", itemResourceRel = "list", excerptProjection = ProductProjection.class)
 public interface ProductRepository extends JpaRepository<Product, Integer> {
 
-//    @Query("select * from product p join characteristic ch on ch.product_id=p.id join property p on ch_id=p.caracteristic_id where p.id=:", nativeQuery = true)
-//    List<Product> findAll();
+    @Query(value = "select * from product p\n" +
+            "    join characteristic c on p.id = c.product_id\n" +
+            "    join property pro on c.id = pro.characteristic_id\n" +
+            "where pro.id in (:id)", nativeQuery = true)
+    List<Product> findAll(Integer[] id);
 }
