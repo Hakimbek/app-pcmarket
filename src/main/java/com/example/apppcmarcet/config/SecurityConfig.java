@@ -20,7 +20,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .inMemoryAuthentication()
                 .withUser("superAdmin").password(password().encode("superAdmin")).roles("SUPER_ADMIN").authorities("READ_ALL_PRODUCT", "READ_ONE_PRODUCT", "DELETE_PRODUCT", "ADD_PRODUCT", "EDIT_PRODUCT")
                 .and()
-                .withUser("Moderator").password(password().encode("moderator")).roles("MODERATOR").authorities("ADD_PRODUCT", "EDIT_PRODUCT")
+                .withUser("Moderator").password(password().encode("moderator")).roles("MODERATOR").authorities("ADD_PRODUCT", "EDIT_PRODUCT", "READ_ALL_PRODUCT", "READ_ONE_PRODUCT")
                 .and()
                 .withUser("operator").password(password().encode("operator")).roles("OPERATOR").authorities("READ_ALL_PRODUCT", "READ_ONE_PRODUCT");
     }
